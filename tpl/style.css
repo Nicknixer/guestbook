@@ -2,3 +2,34 @@ body {
 background: #2effbd;
 color: #000;
 }
+.head {
+background: #a6cc7a;
+width:200px;
+text-align: center;
+padding: 2px 0px 1px 0px;
+margin: 0px;
+}
+.foot {
+background: #a6cc7a;
+width:200px;
+text-align: center;
+padding: 1px 0px 2px 0px;
+margin: 0px;
+font-size: 14px;
+}
+.msg {
+background: #e6f0da;
+width:200px;
+text-align: center;
+padding: 1px 0px 2px 0px;
+margin: 0px;
+font-size: 14px;
+}
+form {
+background: #fff;
+width:200px;
+text-align: right;
+padding: 1px 0px 2px 0px;
+margin: 0px;
+font-size: 14px;
+}

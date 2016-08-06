@@ -3,3 +3,5 @@
 	<br/>
 	(max: 45) <input type="submit" name="Add" value="Add"/>
 </form>
+<div class="msg">Message 1</div>
+<div class="msg">Message 2</div>
