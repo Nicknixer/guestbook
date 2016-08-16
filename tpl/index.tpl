@@ -4,4 +4,14 @@
 	(max: 45) <input type="submit" name="Add" value="Add"/>
 </form>
 <div class="msg">Message 1</div>
+
+<?php
+/*
+$stmt = $pdo->query('SELECT msg FROM book');
+while ($row = $stmt->fetch())
+{
+    echo $row['msg'] . "\n";
+}
+*/
+?>
 <div class="msg">Message 2</div>
