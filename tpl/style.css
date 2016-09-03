@@ -6,8 +6,11 @@ color: #000;
 background: #a6cc7a;
 width:200px;
 text-align: center;
-padding: 2px 0px 1px 0px;
+padding: 2px 0px 1px 2px;
 margin: 0px;
+font-family: Coursive;
+border-radius: 5px 5px 0 0;
+font-size: 18px;
 }
 .foot {
 background: #a6cc7a;
@@ -16,6 +19,8 @@ text-align: center;
 padding: 1px 0px 2px 0px;
 margin: 0px;
 font-size: 14px;
+
+border-radius: 0 0 5px 5px;
 }
 .msg {
 background: #e6f0da;
@@ -23,7 +28,7 @@ width:200px;
 text-align: left;
 padding: 1px 0px 2px 2px;
 margin: 0px;
-font-size: 14px;
+font-size: 16px;
 }
 form {
 background: #fff;
@@ -31,5 +36,5 @@ width:200px;
 text-align: left;
 padding: 1px 0px 2px 2px;
 margin: 0px;
-font-size: 14px;
+font-size: 16px;
 }

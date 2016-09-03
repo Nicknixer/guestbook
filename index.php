@@ -15,7 +15,7 @@ if(isset($_POST['add']))
     {
         //need insert data to database
         $msg_to_save = trim($_POST['message']);
-        $STH = $pdo->prepare("INSERT INTO book (msg) VALUES (:msg);");
+        $STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
         $STH->bindParam(':msg',$msg_to_save);
         $STH->execute();
     }

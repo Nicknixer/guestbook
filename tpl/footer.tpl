@@ -1,3 +1,3 @@
-<div class="foot">GuestBook 2016</div>
+<div class="foot"><i>GuestBook 2016</i></div>
 </body>
 </html>
