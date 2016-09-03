@@ -13,8 +13,12 @@ if(isset($_POST['add']))
     }
     else
     {
-        //need insert data to database
-        $msg_to_save = trim($_POST['message']);
+        $msg_to_save = trim(htmlspecialchars($_POST['message']));
+
+//smiles
+        $msg_to_save = str_replace(':)','<img src="img/smile.png" width="20" height="20"/>',$msg_to_save);
+        $msg_to_save = str_replace(':-)','<img src="img/smile.png" width="20" height="20"/>',$msg_to_save);
+//endsmiles
         $STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
         $STH->bindParam(':msg',$msg_to_save);
         $STH->execute();
