@@ -1,7 +1,7 @@
 <?php
 $ms_host = "localhost";
 $ms_user = "root";
-$ms_pass = "TWM9uBhx";
+$ms_pass = "";
 $ms_db = "guestbook";
 $charset = "utf8";
 
