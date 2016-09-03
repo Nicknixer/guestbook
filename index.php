@@ -14,6 +14,10 @@ if(isset($_POST['add']))
     else
     {
         //need insert data to database
+        $msg_to_save = trim($_POST['message']);
+        $STH = $pdo->prepare("INSERT INTO book (msg) VALUES (:msg);");
+        $STH->bindParam(':msg',$msg_to_save);
+        $STH->execute();
     }
     $isadd = true;
 }
