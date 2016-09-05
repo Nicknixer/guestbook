@@ -17,7 +17,7 @@
 <?php
 while ($row = $rows->fetch())
 {
-    echo '<div class="msg"><b>Guest</b>. Date: '.$row['date'].'<br/>Message: '.$row['msg'].'</div>';
+    echo '<div class="msg"><b>Guest</b>. Date: '.$row['date'].' ID: <b>'.$row['id'].'</b><br/>Message: '.$row['msg'].'</div>';
 }
 
 ?>
