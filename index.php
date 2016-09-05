@@ -1,5 +1,7 @@
 <?php
+include 'config.php';
 include 'db_config.php';
+include 'admin/auth.php';
 $title = "Guest Book";
 
 //After click on "Add"
