@@ -1,7 +1,7 @@
 <?php
     if($isadd)
     {
-        if($err_empty_msg) echo '<div class="msg">Message is empty!</div>';
+        if($err_empty_msg) echo '<div class="error">Message is empty!</div>';
     }
 ?>
 

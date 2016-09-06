@@ -1,6 +1,11 @@
 <?php
 
+$title = "Admin panel";
+$wrong_password = false;
+$empty_password = false;
 include 'config.php';
+include 'tpl/header.tpl';
+
 
 if(empty($_POST['ok']))
 {
@@ -8,18 +13,27 @@ if(empty($_POST['ok']))
 }
 else
 {
-	if($hash_pass == hash("sha256",$_POST['password'],false))
+	if($_POST['password'] != '')
 	{
-		echo 'Success<br/>';
-		setcookie("pass",$hash_pass);
-		echo '<a href="./">Home</a>';
+		if($hash_pass == hash("sha256",$_POST['password'],false))
+		{
+			echo 'Success<br/>';
+			setcookie("pass",$hash_pass);
+			echo '<a href="./">Home</a>';
+		}
+		else
+		{
+			$wrong_password = true;
+			include 'tpl/login.tpl';
+		}
 	}
 	else
 	{
-		echo 'Failed<br/>';
+		$empty_password = true;
 		include 'tpl/login.tpl';
 	}
 }
 
+include 'tpl/footer.tpl';
 
 ?>
