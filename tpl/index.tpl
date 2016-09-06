@@ -3,8 +3,19 @@
     {
         if($err_empty_msg) echo '<div class="error">Message is empty!</div>';
     }
+	
 ?>
 
+<?php
+if($is_admin) 
+{
+	echo '<div class="msg"><a href="logout.php">Logout</a></div>';
+}
+else
+{
+	echo '<div class="msg"><a href="login.php">Sign in</a></div>';
+}
+?>
 
 <form action="?" method="POST">
 	<textarea name="message" cols="50" rows="4" maxlength="450" placeholder="Type your message here"><?php echo $msg_after_refresh; ?></textarea>

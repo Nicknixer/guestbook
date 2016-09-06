@@ -8,4 +8,5 @@ if(isset($_COOKIE["pass"]))
 		$is_admin = true;
 	}
 }
+
 ?>

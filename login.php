@@ -17,9 +17,9 @@ else
 	{
 		if($hash_pass == hash("sha256",$_POST['password'],false))
 		{
-			echo 'Success<br/>';
+			echo '<div class="msg">Success<br/>';
 			setcookie("pass",$hash_pass);
-			echo '<a href="./">Home</a>';
+			echo '<a href="./">Home</a></div>';
 		}
 		else
 		{
