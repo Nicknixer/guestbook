@@ -7,7 +7,7 @@ if($isadd)
 
 ?>
 
-<form action="?" method="POST">
+<form action="?p=<?php echo $page;?>" method="POST">
 	<textarea name="message" cols="50" rows="4" maxlength="450" placeholder="Type your message here"><?php echo $msg_after_refresh; ?></textarea>
 	<br/>
 	<input type="submit" name="add" value="Add"/>
