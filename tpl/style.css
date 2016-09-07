@@ -4,54 +4,56 @@ color: #000;
 }
 .head {
 background: #a6cc7a;
-width:400px;
+width:100%;
 text-align: center;
 padding: 1px 0px 2px 2px;
 margin: 0px;
 font-family: Coursive;
 border-radius: 0 5px 0 0;
 font-size: 18px;
+border: #a6cc7a solid 4px;
 }
 .foot {
 margin: 0px;
 background: #a6cc7a;
-width:400px;
+width:100%;
 text-align: center;
 padding: 1px 0px 2px 2px;
 margin: 0px;
 font-size: 14px;
-
+border: #a6cc7a solid 4px;
 border-radius: 0 0 5px 0;
 }
 .msg {
 margin: 0px;
-background: #e6f0da;
-width:400px;
-text-align: left;
+background: #FFF;
+width:100%;
+text-align: justify;
 padding: 1px 0px 2px 2px;
 margin: 0px;
 font-size: 16px;
-
+border: #e6f0da double 4px;
 }
 .error {
 margin: 0px;
-background: #e6f0da;
-width:400px;
-text-align: left;
+background: #FFF;
+width:100%;
+text-align: justify;
 padding: 1px 0px 2px 2px;
 margin: 0px;
 font-size: 16px;
+border: #e6f0da double 4px;
 color: red;
 }
 form {
 margin: 0px;
-background: #fff;
-width:400px;
+background: #FFF;
+width:100%;
 text-align: left;
 padding: 1px 0px 2px 2px;
 margin: 0px;
 font-size: 16px;
-
+border: #e6f0da double 4px;
 }
 .all {
 border-left: 6px double #a6cc7a;
