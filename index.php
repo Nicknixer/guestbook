@@ -2,9 +2,9 @@
 
 $title = "Guest Book";
 
-include 'config.php';
-include 'db_config.php';
-include 'admin/auth.php';
+include '/config.php';
+include '/db_config.php';
+include '/admin/auth.php';
 
 //After click on "Add"
 $isadd = false;
@@ -20,8 +20,8 @@ if(isset($_POST['add']))
         $msg_to_save = trim(htmlspecialchars($_POST['message']));
 
 //smiles
-        $msg_to_save = str_replace(':)','<img src="img/smile.png" width="20" height="20"/>',$msg_to_save);
-        $msg_to_save = str_replace(':-)','<img src="img/smile.png" width="20" height="20"/>',$msg_to_save);
+        $msg_to_save = str_replace(':)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
+        $msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
 //endsmiles
         $STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
         $STH->bindParam(':msg',$msg_to_save);
@@ -41,7 +41,7 @@ if(isset($_POST['refresh']))
 
 $rows = $pdo->query('SELECT * FROM book');
 
-include 'tpl/header.tpl';
-include 'tpl/index.tpl';
-include 'tpl/footer.tpl';
+include '/tpl/header.tpl';
+include '/tpl/index.tpl';
+include '/tpl/footer.tpl';
 ?>

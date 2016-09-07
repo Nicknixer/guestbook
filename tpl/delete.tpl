@@ -29,4 +29,4 @@ else
 <?php
 }
 ?>
-<div class = "msg"><a href = "../">Home</div>
+<div class = "msg"><a href = "/">Home</div>

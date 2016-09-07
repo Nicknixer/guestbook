@@ -3,13 +3,13 @@
 $title = "Admin panel";
 $wrong_password = false;
 $empty_password = false;
-include 'config.php';
-include 'tpl/header.tpl';
+include '/config.php';
+include '/tpl/header.tpl';
 
 
 if(empty($_POST['ok']))
 {
-	include 'tpl/login.tpl';
+	include '/tpl/login.tpl';
 }
 else
 {
@@ -19,21 +19,21 @@ else
 		{
 			echo '<div class="msg">Success<br/>';
 			setcookie("pass",$hash_pass);
-			echo '<a href="./">Home</a></div>';
+			echo '<a href="/">Home</a></div>';
 		}
 		else
 		{
 			$wrong_password = true;
-			include 'tpl/login.tpl';
+			include '/tpl/login.tpl';
 		}
 	}
 	else
 	{
 		$empty_password = true;
-		include 'tpl/login.tpl';
+		include '/tpl/login.tpl';
 	}
 }
 
-include 'tpl/footer.tpl';
+include '/tpl/footer.tpl';
 
 ?>

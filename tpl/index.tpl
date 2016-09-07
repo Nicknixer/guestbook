@@ -9,11 +9,11 @@
 <?php
 if($is_admin) 
 {
-	echo '<div class="msg"><a href="logout.php">Logout</a></div>';
+	echo '<div class="msg"><a href="/logout.php">Logout</a></div>';
 }
 else
 {
-	echo '<div class="msg"><a href="login.php">Sign in</a></div>';
+	echo '<div class="msg"><a href="/login.php">Sign in</a></div>';
 }
 ?>
 
@@ -32,7 +32,7 @@ while ($row = $rows->fetch())
     echo '<div class="msg"><b>Guest</b>. Date: '.$row['date'].' ID: <b>'.$row['id'].'</b> ';
 	if($is_admin)
 	{
-		echo '<a href="admin/delete.php?id='.$row['id'].'"><img src="img/delete.png" width="12" height="12" alt="x"/></a>';
+		echo '<a href="/admin/delete.php?id='.$row['id'].'"><img src="/img/delete.png" width="12" height="12" alt="x"/></a>';
 	}
 	echo '<br/>Message: '.$row['msg'].'</div>';
 }
