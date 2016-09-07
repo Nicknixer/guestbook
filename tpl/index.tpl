@@ -1,14 +1,5 @@
 <?php
 
-if($is_admin) 
-{
-	echo '<div class="msg"><a href="/logout.php">Logout</a></div>';
-}
-else
-{
-	echo '<div class="msg"><a href="/login.php">Sign in</a></div>';
-}
-
 if($isadd)
 {
 	if($err_empty_msg) echo '<div class="error">Message is empty!</div>';
@@ -39,6 +30,17 @@ while ($row = $rows->fetch())
 <div class="msg">
 <?php echo $navi_links; /* Links of navi */ ?>
 </div>
+<div class="msg">Pages: <?php echo $pages; ?><br/>Posts: <?php echo $posts; ?></div>
+<?php
+if($is_admin) 
+{
+	echo '<div class="msg"><a href="/logout.php">Logout</a></div>';
+}
+else
+{
+	echo '<div class="msg"><a href="/login.php">Sign in</a></div>';
+}
+?>
 
 
 

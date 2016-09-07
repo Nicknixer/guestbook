@@ -57,14 +57,14 @@ else
 }
 
 $page_at = $page * 10 - 10;
-$page_to = $page_at + 10;
 
 $rows = $pdo->prepare('SELECT * FROM book ORDER BY id DESC LIMIT :pageat,10 ;');
 $rows->bindParam(':pageat',$page_at,PDO::PARAM_INT);
 $rows->execute();
 
 $pg = $pdo->query('SELECT * FROM book;');
-$pages = intval($pg->fetchColumn()/10)+1;
+$posts = $pg->fetchColumn();
+$pages = intval($posts/10)+1;
 
 
 
@@ -86,7 +86,7 @@ else
 	$post = 'Post.';
 }
 
-$navi_links = $prev.'|'.$post;
+$navi_links = $prev.'|'.$post.' (Page: '.$page.')';
 
 //////////////////////////
 include '/tpl/header.tpl';
