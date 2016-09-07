@@ -36,3 +36,9 @@ while ($row = $rows->fetch())
 	echo '<br/>Message: '.$row['msg'].'</div>';
 }
 ?>
+<div class="msg">
+<?php echo $navi_links; /* Links of navi */ ?>
+</div>
+
+
+
