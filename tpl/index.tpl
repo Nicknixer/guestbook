@@ -3,6 +3,7 @@
 if($isadd)
 {
 	if($err_empty_msg) echo '<div class="error">Message is empty!</div>';
+	if($captcha_error) echo '<div class="error">Wrong captcha!</div>';
 }
 
 ?>
@@ -10,6 +11,7 @@ if($isadd)
 <form action="?p=<?php echo $page;?>" method="POST">
 	<textarea name="message" cols="50" rows="4" maxlength="450" placeholder="Type your message here"><?php echo $msg_after_refresh; ?></textarea>
 	<br/>
+	<?php echo $captcha; ?> <input type="text" name="captcha" placeholder="Enter digits"/>
 	<input type="submit" name="add" value="Add"/>
     <input type="submit" name="refresh" value="Refresh"/>
 		

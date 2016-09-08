@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 $is_admin = false;
 if(isset($_COOKIE["pass"]))
 {

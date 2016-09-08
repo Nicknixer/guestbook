@@ -6,6 +6,10 @@ include '/config.php';
 include '/db_config.php';
 include '/admin/auth.php';
 
+//Init variable
+$captcha_error = false;
+$msg_after_refresh = "";
+
 //After click on "Add"
 $isadd = false;
 if(isset($_POST['add']))
@@ -17,25 +21,32 @@ if(isset($_POST['add']))
     }
     else
     {
-        $msg_to_save = trim(htmlspecialchars($_POST['message']));
+		if($_SESSION['captcha'] == $_POST['captcha'])
+		{
+			$msg_to_save = trim(htmlspecialchars($_POST['message']));
 
-		//smiles
-        $msg_to_save = str_replace(':)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
-        $msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
-		//////////////////////////
+			//smiles
+			$msg_to_save = str_replace(':)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
+			$msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
+			//////////////////////////
 
-		//Save message
-        $STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
-        $STH->bindParam(':msg',$msg_to_save);
-        $STH->execute();
-		//////////
+			//Save message
+			$STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
+			$STH->bindParam(':msg',$msg_to_save);
+			$STH->execute();
+			//////////
+		}
+		else
+		{
+			$captcha_error = true;
+			$msg_after_refresh = $_POST['message'];
+		}
     }
     $isadd = true;
 }
 //////////////////////////
 
 //After click on "Refresh"
-$msg_after_refresh = "";
 if(isset($_POST['refresh']))
 {
     $msg_after_refresh = $_POST['message'];
@@ -87,6 +98,13 @@ else
 }
 
 $navi_links = $prev.'|'.$post.' (Page: '.$page.')';
+
+//////////////////////////
+
+//Generate cpatcha
+
+$_SESSION['captcha'] = rand(1000,9999);
+$captcha = $_SESSION['captcha'];
 
 //////////////////////////
 include '/tpl/header.tpl';
