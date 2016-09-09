@@ -1,6 +1,6 @@
 <?php
 
-$title = "Admin panel";
+$title = "Admin access";
 $wrong_password = false;
 $empty_password = false;
 include '/config.php';
