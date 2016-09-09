@@ -73,8 +73,9 @@ $rows = $pdo->prepare('SELECT * FROM book ORDER BY id DESC LIMIT :pageat,10 ;');
 $rows->bindParam(':pageat',$page_at,PDO::PARAM_INT);
 $rows->execute();
 
-$pg = $pdo->query('SELECT * FROM book;');
-$posts = $pg->fetchColumn();
+$pg = $pdo->query('SELECT id FROM book;');
+while($post_array[] = $pg->fetch())
+$posts = count($post_array);
 $pages = intval($posts/10)+1;
 
 
