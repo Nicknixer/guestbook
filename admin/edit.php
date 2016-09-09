@@ -1,6 +1,6 @@
 <?php
 
-$title = "Removing";
+$title = "Editing";
 
 include '../config.php';
 include '../db_config.php';

@@ -27,7 +27,10 @@ while ($row = $rows->fetch())
 		echo '<a href="/admin/edit.php?id='.$row['id'].'"><img src="/img/edit.png" width="12" height="12" alt="e"/></a>';
 		echo '<a href="/admin/delete.php?id='.$row['id'].'"><img src="/img/delete.png" width="12" height="12" alt="x"/></a>';
 	}
-	echo '<br/>Message: '.$row['msg'].'</div>';
+	echo '<br/><b>Message</b>: '.$row['msg'];
+	if($row['answer'] != '') echo '<br/><b>Answer</b>: '.$row['answer'];
+	if($is_admin) echo '<a href="admin/answer.php?id='.$row['id'].'"><img src="img/answer.png" alt="answer" width="12" height="12"/></a>';
+	echo '</div>';
 }
 ?>
 <div class="msg">
