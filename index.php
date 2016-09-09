@@ -30,9 +30,19 @@ if(isset($_POST['add']))
 			$msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
 			//////////////////////////
 
+			if($is_admin)
+			{
+				$name_to_save = "Admin";
+			}
+			else
+			{
+				$name_to_save = "Guest";
+			}
+			
 			//Save message
-			$STH = $pdo->prepare("INSERT INTO book (msg,date) VALUES (:msg,now());");
+			$STH = $pdo->prepare("INSERT INTO book (msg,date,name) VALUES (:msg,now(),:name);");
 			$STH->bindParam(':msg',$msg_to_save);
+			$STH->bindParam(':name',$name_to_save);
 			$STH->execute();
 			//////////
 		}

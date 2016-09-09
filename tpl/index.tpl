@@ -21,7 +21,7 @@ if($isadd)
 <?php
 while ($row = $rows->fetch())
 {
-    echo '<div class="msg"><b>Guest</b>. Date: '.$row['date'].' ID: <b>'.$row['id'].'</b> ';
+    echo '<div class="msg"><img src="/img/guest.png" width="15" height="12" alt="guest"/><b>'.$row['name'].'</b>. Date: '.$row['date'].' ID: <b>'.$row['id'].'</b> ';
 	if($is_admin)
 	{
 		echo '<a href="/admin/edit.php?id='.$row['id'].'"><img src="/img/edit.png" width="12" height="12" alt="e"/></a>';
