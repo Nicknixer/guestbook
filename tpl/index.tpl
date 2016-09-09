@@ -32,6 +32,10 @@ while ($row = $rows->fetch())
 	if($is_admin) echo '<a href="admin/answer.php?id='.$row['id'].'"><img src="img/answer.png" alt="answer" width="12" height="12"/></a>';
 	echo '</div>';
 }
+if($posts == 0)
+{
+	echo '<div class="msg">No messages, be the first!</div>';
+}
 ?>
 <div class="msg">
 <?php echo $navi_links; /* Links of navi */ ?>

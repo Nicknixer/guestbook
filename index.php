@@ -9,6 +9,7 @@ include '/admin/auth.php';
 //Init variable
 $captcha_error = false;
 $msg_after_refresh = "";
+$posts = 0;
 
 //After click on "Add"
 $isadd = false;
