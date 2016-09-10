@@ -1,4 +1,5 @@
 <?php
+
 $ms_host = "localhost";
 $ms_user = "root";
 $ms_pass = "";

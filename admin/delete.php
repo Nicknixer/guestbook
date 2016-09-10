@@ -6,8 +6,6 @@ include '../config.php';
 include '../db_config.php';
 include '../admin/auth.php';
 
-include '../tpl/header.tpl';
-
 if($is_admin)
 {
 	$id_to_delete = trim($_GET['id']);
@@ -17,6 +15,7 @@ if($is_admin)
 		$STH->bindParam(':id',$id_to_delete);
 		$STH->execute();
 		$is_delete = true;
+		$redirect = $_SERVER['SERVER_NAME']; 
 	}
 	else
 	{
@@ -29,10 +28,8 @@ if($is_admin)
 	}
 }
 
+include '../tpl/header.tpl';
 include '../tpl/delete.tpl';
-
-
 include '../tpl/footer.tpl';
-
 
 ?>

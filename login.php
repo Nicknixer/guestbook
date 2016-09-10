@@ -1,39 +1,34 @@
 <?php
 
 $title = "Admin access";
-$wrong_password = false;
-$empty_password = false;
+$errors = '';
+$is_success = false;
+
 include '/config.php';
-include '/tpl/header.tpl';
 
-
-if(empty($_POST['ok']))
-{
-	include '/tpl/login.tpl';
-}
-else
+if(!empty($_POST['ok']))
 {
 	if($_POST['password'] != '')
 	{
 		if($hash_pass == hash("sha256",$_POST['password'],false))
 		{
-			echo '<div class="msg">Success<br/>';
 			setcookie("pass",$hash_pass);
-			echo '<a href="/">Home</a></div>';
+			$redirect = $_SERVER['SERVER_NAME'];
+			$is_success = true;
 		}
 		else
 		{
-			$wrong_password = true;
-			include '/tpl/login.tpl';
+			$errors = 'Wrong password!';
 		}
 	}
 	else
 	{
-		$empty_password = true;
-		include '/tpl/login.tpl';
+		$errors = 'Enter password!';
 	}
 }
 
+include '/tpl/header.tpl';
+include '/tpl/login.tpl';
 include '/tpl/footer.tpl';
 
 ?>

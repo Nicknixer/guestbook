@@ -1,16 +1,17 @@
 <div class="msg">Authorization</div>
 <?php
-if($wrong_password)
+if($errors != '')
 {
-	echo '<div class="error">Wrong password!</div>';
+	echo '<div class="error">'.$errors.'</div>';
 }
-if($empty_password)
+if($is_success)
 {
-	echo '<div class="error">Empty password!</div>';
+	echo '<div class="msg">Success!<br/>You will redirect to main page after 2 seconds.</div>';
 }
-?>
+else { ?>
 <form action="?" method="POST">
 	<input type="text" name="password" placeholder="Type your password"/>
 	<input type="submit" name="ok" value="Enter"/>
 </form>
+<?php } ?>
 <div class="msg"><a href="./">Home</a></div>

@@ -1,11 +1,5 @@
 <?php
-
-if($isadd)
-{
-	if($err_empty_msg) echo '<div class="error">Message is empty!</div>';
-	if($captcha_error) echo '<div class="error">Wrong captcha!</div>';
-}
-
+if($errors != '') echo '<div class="error">'.$errors.'</div>';
 ?>
 
 <form action="?p=<?php echo $page;?>" method="POST">

@@ -6,8 +6,6 @@ include '../config.php';
 include '../db_config.php';
 include '../admin/auth.php';
 
-include '../tpl/header.tpl';
-
 if($is_admin)
 {
 	$id_to_edit = trim($_GET['id']);
@@ -19,6 +17,7 @@ if($is_admin)
 		$rows->bindParam(':message',$message_to_save);
 		$rows->execute();
 		$is_edit = true;
+		$redirect = $_SERVER['SERVER_NAME'];
 	}
 	else
 	{
@@ -31,10 +30,8 @@ if($is_admin)
 	}
 }
 
+include '../tpl/header.tpl';
 include '../tpl/edit.tpl';
-
-
 include '../tpl/footer.tpl';
-
 
 ?>

@@ -7,30 +7,26 @@ include '/db_config.php';
 include '/admin/auth.php';
 
 //Init variable
-$captcha_error = false;
-$msg_after_refresh = "";
+$errors = '';
+$msg_after_refresh = $_POST['message'];
 $posts = 0;
+$isadd = (isset($_POST['add']))? true : false;
+//////////////////
 
 //After click on "Add"
-$isadd = false;
-if(isset($_POST['add']))
+if($isadd)
 {
-    $err_empty_msg = false;
     if(empty(trim($_POST['message'])))
     {
-        $err_empty_msg = true; 
+		$errors = "Enter message!";
     }
     else
     {
 		if($_SESSION['captcha'] == $_POST['captcha'])
 		{
+			//Prepare input data
 			$msg_to_save = trim(htmlspecialchars($_POST['message']));
-
-			//smiles
-			$msg_to_save = str_replace(':)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
-			$msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
-			//////////////////////////
-
+			
 			if($is_admin)
 			{
 				$name_to_save = "Admin";
@@ -39,6 +35,12 @@ if(isset($_POST['add']))
 			{
 				$name_to_save = "Guest";
 			}
+			///////////////////////////
+			
+			//Smiles
+			$msg_to_save = str_replace(':)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
+			$msg_to_save = str_replace(':-)','<img src="/img/smile.png" width="20" height="20"/>',$msg_to_save);
+			//////////////////////////
 			
 			//Save message
 			$STH = $pdo->prepare("INSERT INTO book (msg,date,name) VALUES (:msg,now(),:name);");
@@ -46,14 +48,13 @@ if(isset($_POST['add']))
 			$STH->bindParam(':name',$name_to_save);
 			$STH->execute();
 			//////////
+			$msg_after_refresh = '';
 		}
 		else
 		{
-			$captcha_error = true;
-			$msg_after_refresh = $_POST['message'];
+			$errors = "Wrong captcha!";
 		}
     }
-    $isadd = true;
 }
 //////////////////////////
 
@@ -89,8 +90,6 @@ while($post_array[] = $pg->fetch())
 $posts = count($post_array);
 $pages = intval($posts/10)+1;
 
-
-
 if($page > 1)
 {
 	$prev = '<a href="/?p='.($page-1).'">Prev.</a>';
@@ -113,7 +112,7 @@ $navi_links = $prev.'|'.$post.' (Page: '.$page.')';
 
 //////////////////////////
 
-//Generate cpatcha
+//Generate catcha
 
 $_SESSION['captcha'] = rand(1000,9999);
 $captcha = $_SESSION['captcha'];
