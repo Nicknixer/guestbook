@@ -3,17 +3,17 @@ if($errors != '') echo '<div class="error">'.$errors.'</div>';
 ?>
 
 <form action="?p=<?php echo $page;?>" method="POST">
-	<textarea name="message" cols="50" rows="4" maxlength="450" placeholder="Type your message here"><?php echo $msg_after_refresh; ?></textarea>
+	<textarea name="message" cols="50" rows="4" maxlength="450" placeholder="Type your message here" autofocus required><?php echo $msg_after_refresh; ?></textarea>
 	<br/>
-	<?php echo $captcha; ?> <input type="text" name="captcha" placeholder="Enter digits"/>
-	<input type="submit" name="add" value="Add"/>
-    <input type="submit" name="refresh" value="Refresh"/>
+	Code: <?php echo $captcha; ?> <input type="text" name="captcha" placeholder="Enter digits" required />
+	<button name="add">Add</button>
+	<button name="refresh">Refresh</button>
 		
 
 </form>
 
 <?php
-while ($row = $rows->fetch())
+foreach ($messages as $row)
 {
     echo '<div class="msg"><img src="/img/guest.png" width="15" height="12" alt="guest"/><b>'.$row['name'].'</b>. Date: '.$row['date'].' ID: <b>'.$row['id'].'</b> ';
 	if($is_admin)
