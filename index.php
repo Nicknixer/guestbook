@@ -8,7 +8,7 @@ include '/admin/auth.php';
 
 //Init variable
 $errors = '';
-$msg_after_refresh = $_POST['message'];
+$msg_after_refresh = isset($_POST['message']) ? $_POST['message'] : '';
 $posts = 0;
 $isadd = (isset($_POST['add']))? true : false;
 //////////////////
@@ -85,10 +85,11 @@ $rows = $pdo->prepare('SELECT * FROM book ORDER BY id DESC LIMIT :pageat,10 ;');
 $rows->bindParam(':pageat',$page_at,PDO::PARAM_INT);
 $rows->execute();
 
-$pg = $pdo->query('SELECT id FROM book;');
-while($post_array[] = $pg->fetch())
-$posts = count($post_array);
-$pages = intval($posts/10)+1;
+
+// Count posts
+$pg = $pdo->query('SELECT COUNT(id) AS total FROM book;');
+$posts = $pg->fetch()['total'];
+$pages = intval(($posts-1)/10)+1; 
 
 if($page > 1)
 {
